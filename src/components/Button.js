@@ -7,7 +7,12 @@ const Button = () => {
   const style = useContext(StyleContext);
   const classes = useStyles(style);
 
-  return <button className={classes.Button}>I'm a button</button>;
+  return (
+    <button className={classes.Button}>
+      I'm a button
+      <p>I am nested</p>
+    </button>
+  );
 };
 
 export default Button;

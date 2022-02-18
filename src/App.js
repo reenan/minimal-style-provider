@@ -16,9 +16,18 @@ const App = () => {
   };
 
   const overrides1 = {
-    Button: css`
-      border-radius: 50%;
-    `,
+    Button: {
+      root: css`
+        border-radius: 50%;
+      `,
+
+      paragraph: css`
+        font-size: 10px;
+        text-transform: uppercase;
+        color: cyan;
+        background-color: pink;
+      `,
+    },
   };
 
   return (

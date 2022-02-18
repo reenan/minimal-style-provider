@@ -8,7 +8,12 @@ const ButtonStyles = ({ theme, overrides }) => ({
       background-color: ${theme.hover};
     }
 
-    ${overrides["Button"]};
+    > p {
+      font-size: 40px;
+      ${overrides["Button"]?.paragraph}
+    }
+
+    ${overrides["Button"]?.root};
   `,
 });
 
