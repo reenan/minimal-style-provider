@@ -1,4 +1,4 @@
-import { css } from "@emotion/css";
+import { Global, css } from "@emotion/react";
 
 import StyleProvider from "./style/StyleProvider";
 
@@ -32,6 +32,14 @@ const App = () => {
 
   return (
     <>
+      <Global
+        styles={css`
+          body {
+            padding: 15px;
+          }
+        `}
+      />
+
       <p>Default: </p>
       <StyleProvider>
         <Button />
