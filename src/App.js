@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import { css } from "@emotion/css";
 
-function App() {
+import StyleProvider from "./style/StyleProvider";
+
+import Button from "./components/Button";
+
+const App = () => {
+  const theme1 = {
+    color: "green",
+    hover: "blue",
+  };
+
+  const theme2 = {
+    color: "yellow",
+    hover: "pink",
+  };
+
+  const overrides1 = {
+    Button: css`
+      border-radius: 50%;
+    `,
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <p>Default: </p>
+      <StyleProvider>
+        <Button />
+      </StyleProvider>
+
+      <hr style={{ margin: "15px 0" }} />
+
+      <p>Changing theme: </p>
+      <StyleProvider theme={theme1}>
+        <Button />
+      </StyleProvider>
+
+      <hr style={{ margin: "15px 0" }} />
+
+      <p>Changing overrides: </p>
+      <StyleProvider overrides={overrides1}>
+        <Button />
+      </StyleProvider>
+
+      <hr style={{ margin: "15px 0" }} />
+
+      <p>Changing both: </p>
+      <StyleProvider theme={theme2} overrides={overrides1}>
+        <Button />
+      </StyleProvider>
+    </>
   );
-}
+};
 
 export default App;
